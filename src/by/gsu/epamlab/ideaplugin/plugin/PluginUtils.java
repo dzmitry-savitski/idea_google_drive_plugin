@@ -5,6 +5,7 @@ import by.gsu.epamlab.ideaplugin.google.JarUtils;
 import by.gsu.epamlab.ideaplugin.google.SolutionUtils;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ex.ProjectEx;
 import com.intellij.openapi.vfs.LocalFileSystem;
 
 import java.io.File;
@@ -52,5 +53,13 @@ public class PluginUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Renames current project.
+     */
+    public static void renameProject(String projectName, Project currentProject) {
+        ProjectEx projectEx = (ProjectEx) currentProject;
+        projectEx.setProjectName(projectName);
     }
 }

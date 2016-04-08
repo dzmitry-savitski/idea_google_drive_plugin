@@ -4,6 +4,7 @@ import by.gsu.epamlab.ideaplugin.beans.Solution;
 import by.gsu.epamlab.ideaplugin.plugin.PluginStorage;
 import by.gsu.epamlab.ideaplugin.plugin.PluginUtils;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.project.Project;
 
 public class Reader extends com.intellij.openapi.actionSystem.AnAction {
 
@@ -12,9 +13,10 @@ public class Reader extends com.intellij.openapi.actionSystem.AnAction {
      */
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
+        Project currentProject = anActionEvent.getProject();
 
         // creating new dialog 
-        SolutionSelectDialog taskSelectDialog = new SolutionSelectDialog(anActionEvent.getProject());
+        SolutionSelectDialog taskSelectDialog = new SolutionSelectDialog(currentProject);
 
         // choosing action by exit code
         Solution selectedSolution = SolutionTreeListener.getSelectedSolution();
@@ -22,14 +24,17 @@ public class Reader extends com.intellij.openapi.actionSystem.AnAction {
                 (selectedSolution != null)) {
 
             // clearing current project
-            PluginUtils.clearCurrentProject(anActionEvent.getProject());
-            String projectPath = PluginUtils.getProjectPath(anActionEvent.getProject());
+            PluginUtils.clearCurrentProject(currentProject);
+            String projectPath = PluginUtils.getProjectPath(currentProject);
 
             // loading new solution
             PluginUtils.loadSolution(selectedSolution, projectPath);
 
             // marking selected solution as viewed
             PluginStorage.setViewed(selectedSolution.getHash());
+
+            // renaming project
+            PluginUtils.renameProject(selectedSolution.getHash(), currentProject);
         }
 
 

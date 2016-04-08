@@ -25,6 +25,6 @@ public class Solution {
     }
 
     public String getHash() {
-        return folder + ";" + name;
+        return folder + " - " + name;
     }
 }
