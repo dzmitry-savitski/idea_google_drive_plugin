@@ -3,49 +3,67 @@ package by.gsu.epamlab.ideaplugin.plugin;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.util.ArrayUtil;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Represents IDEA plugin storage.
  */
 public final class PluginStorage {
+    // saved values
+    public static final String VIEWED = "viewed";
+    public static final String EXPANDED_NODES = "nodes";
+
     // getting IDEA properties object
     private static final PropertiesComponent properties = PropertiesComponent.getInstance();
 
-    // initializing viewed property first time
+    // initializing properties first time
     static {
-        if (!properties.isValueSet("viewed")) {
-            properties.setValues("viewed", new String[0]);
+        if (!properties.isValueSet(VIEWED)) {
+            properties.setValues(VIEWED, new String[0]);
+        }
+        if (!properties.isValueSet(EXPANDED_NODES)) {
+            properties.setValues(EXPANDED_NODES, new String[0]);
         }
     }
-    
+
     /**
-     * Adds new solution to viewed array.
+     * Adds new value to storage array.
      */
-    public static void setViewed(String solutionHash) {
-        String[] storageArray = properties.getValues("viewed");
-        
-        // adding hash to storage if not present
-        if (!isViewed(solutionHash)) {
-            // creating new storage array
-            String[] newArray = new String[storageArray.length + 1];
-            System.arraycopy(storageArray, 0, newArray, 0, storageArray.length);
-            newArray[storageArray.length] = solutionHash;
-            properties.setValues("viewed", newArray);
+    public static void addValue(String value, String propertyName) {
+        String[] storageArray = properties.getValues(propertyName);
+        Set<String> setOut = new HashSet<>();
+
+        setOut.add(value);
+        for (String aStorageArray : storageArray) {
+            if (aStorageArray != null && aStorageArray.length() > 0) {
+                setOut.add(aStorageArray);
+            }
         }
+        String[] newArray = setOut.toArray(new String[setOut.size()]);
+        properties.setValues(propertyName, newArray);
+    }
 
+
+    /**
+     * Checks if current value present in storage array.
+     */
+    public static boolean isValuePresent(String value, String propertyName) {
+        String[] propArray = properties.getValues(propertyName);
+        return ArrayUtil.contains(value, propArray);
     }
 
     /**
-     * Checks if current solution has been already viewed.
+     * Clears property.
      */
-    public static boolean isViewed(String value) {
-        String[] viewed = properties.getValues("viewed");
-        return ArrayUtil.contains(value, viewed);
+    public static void clearProperty(String propertyName) {
+        properties.setValues(propertyName, new String[0]);
     }
 
     /**
-     * Clears all viewed marks.
+     * Returns array from storage.
      */
-    public static void clearViewed() {
-        properties.setValues("viewed", new String[0]);
+    public static String[] getValuesArray(String propertyName) {
+        return properties.getValues(propertyName);
     }
 }

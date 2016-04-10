@@ -6,10 +6,13 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-class SolutionTreeListener implements TreeSelectionListener {
+/**
+ * Listens all selections in tree.
+ */
+public class SolutionSelectListener implements TreeSelectionListener {
     private static Solution selectedSolution;
 
-    static Solution getSelectedSolution() {
+    public static Solution getSelectedSolution() {
         return selectedSolution;
     }
 
@@ -27,5 +30,6 @@ class SolutionTreeListener implements TreeSelectionListener {
             selectedSolution = null;
         }
     }
+
 
 }

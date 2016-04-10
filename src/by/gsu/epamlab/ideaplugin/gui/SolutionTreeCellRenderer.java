@@ -30,7 +30,7 @@ class SolutionTreeCellRenderer implements TreeCellRenderer {
             label.setText(solution.getName());
 
             // changing icons
-            if (PluginStorage.isViewed(solution.getHash())) {
+            if (PluginStorage.isValuePresent(solution.getHash(), PluginStorage.VIEWED)) {
                 label.setIcon(OK_ICON);
             } else {
                 label.setIcon(ZIP_ICON);

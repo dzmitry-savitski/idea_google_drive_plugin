@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class SolutionUtils {
+
+    /**
+     * Returns list of solutions from given google drive folder name.
+     */
     public static List<Solution> getSolutionList(String folderName) throws IOException {
         // empty list for output.
         List<Solution> solutions = new ArrayList<>();

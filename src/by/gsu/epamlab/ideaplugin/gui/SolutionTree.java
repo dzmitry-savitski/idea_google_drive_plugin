@@ -3,15 +3,18 @@ package by.gsu.epamlab.ideaplugin.gui;
 import by.gsu.epamlab.ideaplugin.beans.Solution;
 import by.gsu.epamlab.ideaplugin.google.SolutionUtils;
 import by.gsu.epamlab.ideaplugin.plugin.Config;
+import by.gsu.epamlab.ideaplugin.plugin.PluginStorage;
 import com.intellij.ui.treeStructure.Tree;
+import com.intellij.util.ArrayUtil;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 import java.io.IOException;
 import java.util.List;
 
-class SolutionTree extends Tree {
+class SolutionTree {
 
     /**
      * Generates tree of solutions.
@@ -32,8 +35,10 @@ class SolutionTree extends Tree {
         // setting renderer for viewed icons
         tree.setCellRenderer(new SolutionTreeCellRenderer());
 
-        // adding listener
-        tree.addTreeSelectionListener(new SolutionTreeListener());
+        // adding listeners
+        tree.addTreeSelectionListener(new SolutionSelectListener());
+        tree.addTreeExpansionListener(new SolutionExpandListener(tree));
+        expandSavedNodes(tree);
 
         return tree;
     }
@@ -62,6 +67,21 @@ class SolutionTree extends Tree {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * Expands all saved nodes.
+     */
+    private static void expandSavedNodes(JTree tree) {
+        String[] savedNodes = PluginStorage.getValuesArray(PluginStorage.EXPANDED_NODES);
+        int row = 0;
+        while (row < tree.getRowCount()) {
+            TreePath path = tree.getPathForRow(row);
+            if (ArrayUtil.contains(path.toString(), savedNodes)) {
+                tree.expandPath(path);
+            }
+            row++;
         }
     }
 }

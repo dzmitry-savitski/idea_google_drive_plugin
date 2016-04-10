@@ -41,7 +41,7 @@ final class DriveUtils {
             JacksonFactory.getDefaultInstance();
     /**
      * Global instance of the scopes required by this quickstart.
-     * <p>
+     * <p/>
      * If modifying these scopes, delete your previously saved credentials
      */
     private static final List<String> SCOPES =
@@ -73,7 +73,6 @@ final class DriveUtils {
      * @throws IOException
      */
     private static Credential authorize() throws IOException {
-
         // Load client secrets.
         InputStream in =
                 new FileInputStream(

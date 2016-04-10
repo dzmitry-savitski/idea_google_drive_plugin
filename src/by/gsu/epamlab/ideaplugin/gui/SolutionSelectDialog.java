@@ -12,10 +12,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-class SolutionSelectDialog extends DialogWrapper {
+public class SolutionSelectDialog extends DialogWrapper {
 
 
-    SolutionSelectDialog(@Nullable Project project) {
+    public SolutionSelectDialog(@Nullable Project project) {
         super(project, true);
         this.init();
         this.show();
@@ -61,7 +61,7 @@ class SolutionSelectDialog extends DialogWrapper {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                PluginStorage.clearViewed();
+                PluginStorage.clearProperty(PluginStorage.VIEWED);
                 SolutionSelectDialog.this.close(SolutionSelectDialog.CANCEL_EXIT_CODE);
             }
 
