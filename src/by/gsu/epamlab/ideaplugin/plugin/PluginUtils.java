@@ -73,7 +73,7 @@ public class PluginUtils {
         try {
             byte[] file = SolutionUtils.getFile(solution.getId());
             JarUtils.unpackJarTo(file, projectPath);
-            LocalFileSystem.getInstance().refresh(true);
+            LocalFileSystem.getInstance().refresh(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

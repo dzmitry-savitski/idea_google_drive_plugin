@@ -43,7 +43,7 @@ public class Runner extends com.intellij.openapi.actionSystem.AnAction {
 
             // renaming project
             PluginUtils.renameProject(selectedSolution.getHash(), currentProject);
-
+            
             // opening Runner.java
             final String startFileName = Config.getString("by.gsu.epamlab.ideaplugin.startfile");
             PluginUtils.openFile(startFileName, currentProject);
