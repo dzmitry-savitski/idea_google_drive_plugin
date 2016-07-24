@@ -30,6 +30,4 @@ public class SolutionSelectListener implements TreeSelectionListener {
             selectedSolution = null;
         }
     }
-
-
 }

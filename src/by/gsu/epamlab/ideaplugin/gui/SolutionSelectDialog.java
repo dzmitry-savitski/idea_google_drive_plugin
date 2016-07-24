@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 
 public class SolutionSelectDialog extends DialogWrapper {
 
-
     public SolutionSelectDialog(@Nullable Project project) {
         super(project, true);
         this.init();
@@ -27,8 +26,6 @@ public class SolutionSelectDialog extends DialogWrapper {
     @Nullable
     @Override
     protected JComponent createCenterPanel() {
-
-
         JPanel panel = new JPanel(new BorderLayout());
         panel.setPreferredSize(new Dimension(900, 500));
 
@@ -64,7 +61,6 @@ public class SolutionSelectDialog extends DialogWrapper {
                 PluginStorage.clearProperty(PluginStorage.VIEWED);
                 SolutionSelectDialog.this.close(SolutionSelectDialog.CANCEL_EXIT_CODE);
             }
-
         };
     }
 }

@@ -43,7 +43,6 @@ public final class SolutionUtils {
                 }
             }
         }
-
         return solutions;
     }
 

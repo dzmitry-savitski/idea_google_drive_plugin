@@ -1,5 +1,8 @@
 package by.gsu.epamlab.ideaplugin.beans;
 
+/**
+ * Represents jar file with Idea project.
+ */
 public class Solution {
     private final String name;
     private final String id; // goggle drive id, may vary from session

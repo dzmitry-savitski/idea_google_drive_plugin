@@ -46,6 +46,4 @@ public class Config {
         String property = String.valueOf(props.get("by.gsu.epamlab.ideaplugin.solution.dirs"));
         return property.split(";");
     }
-
-
 }

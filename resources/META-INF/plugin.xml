@@ -9,7 +9,7 @@
 
     <description><![CDATA[
       This plugin helps to download jar files from google drive for quick review.
-      Please, for proper installation read: 
+      Please, for proper installation read:
        https://docs.google.com/document/d/1UpqqG5ZjZhV3-JT8DCJtCF-3oZkjQAjA-ySlFO2JRAw/edit?usp=sharing
     ]]></description>
 
@@ -28,7 +28,7 @@
     </extensions>
 
     <actions>
-        <action id="reader" class="by.gsu.epamlab.ideaplugin.Runner" icon="/epam.png" text="Open EPAM plugin">
+        <action id="reader" class="by.gsu.epamlab.ideaplugin.Runner" icon="/icons/epam.png" text="Open EPAM plugin">
             <add-to-group group-id="NavBarToolBar" anchor="first"/>
         </action>
     </actions>

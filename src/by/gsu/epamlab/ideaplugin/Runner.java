@@ -18,7 +18,7 @@ public class Runner extends com.intellij.openapi.actionSystem.AnAction {
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project currentProject = anActionEvent.getProject();
 
-        // creating new dialog 
+        // creating new dialog
         SolutionSelectDialog taskSelectDialog = new SolutionSelectDialog(currentProject);
 
         // choosing action by exit code
@@ -43,14 +43,10 @@ public class Runner extends com.intellij.openapi.actionSystem.AnAction {
 
             // renaming project
             PluginUtils.renameProject(selectedSolution.getHash(), currentProject);
-            
+
             // opening Runner.java
             final String startFileName = Config.getString("by.gsu.epamlab.ideaplugin.startfile");
             PluginUtils.openFile(startFileName, currentProject);
         }
-
-
     }
-
-
 }

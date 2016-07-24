@@ -14,8 +14,8 @@ import java.awt.*;
  * Depends on their viewed status.
  */
 class SolutionTreeCellRenderer implements TreeCellRenderer {
-    private static final Icon ZIP_ICON = IconLoader.getIcon("/zip.png");
-    private static final Icon OK_ICON = IconLoader.getIcon("/ok.png");
+    private static final Icon ZIP_ICON = IconLoader.getIcon("/icons/zip.png");
+    private static final Icon OK_ICON = IconLoader.getIcon("/icons/ok.png");
     private final JLabel label;  // creating new label for each solution
 
     SolutionTreeCellRenderer() {
