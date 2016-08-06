@@ -30,4 +30,4 @@ This plugin created to help download jar files from google drive and unpack them
 
 ## Some screenshots:
 [![screen 1](https://docs.google.com/uc?id=0B9dr_t3FnLQ4ZGxIa09JM3lFUEE)](https://docs.google.com/uc?id=0B9dr_t3FnLQ4ZGxIa09JM3lFUEE)
-[![screen 2](https://docs.google.com/uc?id=0B9dr_t3FnLQ4eVc5NDQwbDRDaTA)](https://docs.google.com/uc?id=0B9dr_t3FnLQ4eVc5NDQwbDRDaTA)
+[![screen 2](https://docs.google.com/uc?id=0B9dr_t3FnLQ4VFpBcC14Z3FsMWM)](https://docs.google.com/uc?id=0B9dr_t3FnLQ4VFpBcC14Z3FsMWM)
